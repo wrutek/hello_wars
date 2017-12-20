@@ -1,6 +1,7 @@
 $(function() {
 
   let wall = 0;
+  let isDragging = false;
 
   const getSizeMap = function () {
     return parseInt($('#mapSize :selected')[0].value);
@@ -37,10 +38,23 @@ $(function() {
     wall = parseInt($('#palette :selected')[0].value)
   });
 
-  $('#map div span').click(function (e) {
+  // drawing with mousedown pushed
+  $('#map').on('mousedown', 'div span', function (e) {
     $(e.currentTarget).attr({class: 'wall_' + wall});
+    isDragging = true;
+    e.preventDefault ? e.preventDefault() : e.returnValue = false
+  })
+  .on('mouseover', 'div span', function(e) {
+    if (isDragging) {
+      $(e.currentTarget).attr({class: 'wall_' + wall});
+    }
+  });
+  $(document).mouseup({isDragging: isDragging}, function(e) {
+    e.data.isDragging = false;
+    isDragging = false;
   });
 
+  // export CSV file and download
   $('#export').click(function () {
     let csvContent = "data:text/csv;charset=utf-8,";
     let rows = $('#map div');
@@ -51,9 +65,8 @@ $(function() {
         rowString = rowString + $(cell).attr('class') + ',';
       });
       rowString = rowString.slice(0, -1);
-      csvContent += rowString + "\r\n"; // add carriage return
+      csvContent += rowString + "\r\n";
     });
-    // window.open(encodeURI(csvContent));
 
     let link = $("<a>");
     link.attr({"href": encodeURI(csvContent)});
