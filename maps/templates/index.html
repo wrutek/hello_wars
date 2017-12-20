@@ -1,0 +1,34 @@
+<html>
+<head>
+</head>
+<body>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  {% load static %}
+
+  <select id='mapSize'>
+      <option value=10>10</option>
+      <option value=15>15</option>
+      <option value=20>20</option>
+      <option value=25>25</option>
+      <option value=30>30</option>
+  </select>
+  <span id='paletteMap'>
+    <select id=palette>
+      <option value="0">empty</option>
+      <option value="1">wall (1 hit to destroy)</option>
+      <option value="2">wall (2 hit to destroy)</option>
+      <option value="3">wall (3 hit to destroy)</option>
+      <option value="10">wall (impossible to destroy)</option>
+    </select>
+  </span>
+
+  <div id='mapDrawer'>
+    <span id='map'>
+    </span>
+  </div>
+  <button id="export">export</button>
+
+  <script src='{% static "js/map.js" %}'></script>
+  <link rel="stylesheet" type="text/css" href='{% static "css/map.css"%}'></script>
+</body>
+</html>

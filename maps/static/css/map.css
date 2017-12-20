@@ -1,0 +1,29 @@
+
+#map span {
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+
+    border: 1px #a7a7a7 solid;
+}
+#map span.wall_1 {
+  background-color: #DDD
+}
+#map span.wall_2 {
+  background-color: #999
+}
+#map span.wall_3 {
+  background-color: #555
+}
+#map span.wall_10 {
+  background-color: #111
+}
+
+
+#map {
+  display: inline-block;
+}
+
+#paletteMap {
+  display: inline-block;
+}
