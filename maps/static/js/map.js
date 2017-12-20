@@ -69,8 +69,9 @@ $(function() {
     });
 
     let link = $("<a>");
-    link.attr({"href": encodeURI(csvContent)});
-    link.attr({"download": "HelloWars_Map.csv"});
+    link.attr({
+      "href": encodeURI(csvContent),
+      "download": "HelloWars_Map.csv"});
     $('body').append(link);
 
     link[0].click()

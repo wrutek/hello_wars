@@ -1,0 +1,24 @@
+= Hello Wars project =
+
+This project implements:
+ - creating bot map
+ - bot arena for them to fight
+
+== Requirements ==
+
+-- Django 2.0
+
+== Run ==
+
+For the first time
+
+```bash
+./manage.py syncdb
+./manage.py migrate
+```
+
+run server
+
+```bash
+./manage.py runserver
+```
