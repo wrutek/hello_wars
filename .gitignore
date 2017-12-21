@@ -1,2 +1,11 @@
 db.sqlite3
-*pyc
+
+# regular python
+__pycache__/
+*.py[cod]
+*$py.class
+# django
+*.log
+.static_storage/
+.media/
+local_settings.py
