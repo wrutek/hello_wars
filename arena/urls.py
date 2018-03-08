@@ -1,4 +1,4 @@
-"""hello_wars URL Configuration
+"""hello_wars.maps URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -14,13 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path
 
-# import maps
+from . import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-
-    path('map/', include('maps.urls')),
-    path('', include('arena.urls')),
+    path('', views.index),
+    path('arena/', views.arena),
 ]
